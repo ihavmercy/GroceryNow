@@ -6,8 +6,44 @@
 //
 
 import SwiftUI
+import Firebase
 
 class CartViewModel: ObservableObject {
+    
+    //@Published var items: [Item] = []
+    @Published var cartItems: [Cart] = []
+    
+    //function to add to card
+    func addToCart(item: Item){
+        //
+        self.items[getIndex(item: item, isCartIndex: false)].isAdded = !item.isAdded
+        
+        /*if item.isAdded{
+            
+            //removing from list
+            self.cartItems.remove(at: getIndex(item: item, isCartIndex: true))
+            return
+        }*/
+        self.cartItems.append(Cart(item: item, quantity: 1))
+    }
+        
+        func getIndex(item: Item,isCartIndex: Bool)->Int{
+            
+            let index = self.items.firstIndex { (item1) -> Bool in
+                return item.id == item1.id
+            } ?? 0
+            
+            
+        
+                
+            let cartIndex = self.cartItems.firstIndex { (item1) -> Bool in
+                    return item.id == item1.id
+                } ?? 0
+            return isCartIndex ? cartIndex : index
+            
+        
+            
+        }
     
     @Published var items = [
         Item(item_name: "Apple", item_cost: 50, item_details: "Good apple", item_image: "apple", item_quantity: 1, isAdded: false),

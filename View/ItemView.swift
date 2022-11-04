@@ -11,6 +11,27 @@ struct ItemView: View {
     //real time update of price
     @Binding var item: Item
     var body: some View {
+        ZStack{
+            LinearGradient(gradient: .init(colors: [Color.blue,Color("lightblue")]),startPoint: .leading,endPoint: .trailing)
+            
+            //Delete button
+            
+            HStack{
+                Spacer()
+                
+                Button(action: {}){
+                    
+                    Image(systemName: "trash")
+                        .font(.title)
+                        .foregroundColor(.red)
+                    //default frame
+                        .frame(width: 90, height: 50)
+                }
+            }
+            
+            
+            
+            
         HStack(spacing: 15){
             Image(item.item_image)
                 .resizable()
@@ -55,6 +76,16 @@ struct ItemView: View {
                     }
                 }
             }.padding()
+                /*.contextMenu{
+                    
+                    Button(action: {
+                        
+                        let index =
+                    })
+                }*/
+                //.background(Color("gray"))
+                //.contentShape(Rectangle())
+        }
         }
     }
 }

@@ -16,7 +16,7 @@ struct ItemView: View {
             
             //Delete button
             
-            HStack{
+            /*HStack{
                 Spacer()
                 
                 Button(action: {}){
@@ -27,7 +27,7 @@ struct ItemView: View {
                     //default frame
                         .frame(width: 90, height: 50)
                 }
-            }
+            }*/
             
             
             

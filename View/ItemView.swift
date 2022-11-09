@@ -76,13 +76,17 @@ struct ItemView: View {
                     }
                 }
             }.padding()
+            //remove button by holding down the item
                 /*.contextMenu{
                     
                     Button(action: {
                         
-                        let index =
+                        let index = cartData.getIndex(item: cart.item, isCartIndex: true)
+                        
+                        cartData.cartItems.remove(at: index)
                     })
                 }*/
+            
                 //.background(Color("gray"))
                 //.contentShape(Rectangle())
         }
